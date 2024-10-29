@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitTrackApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace FitTrackApp.Views
         public RegisterWindow()
         {
             InitializeComponent();
+            DataContext = new RegisterViewModel();
         }
     }
 }

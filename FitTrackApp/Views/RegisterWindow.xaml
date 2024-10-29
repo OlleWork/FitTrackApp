@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
     <Grid>
-        
+        <!-- SPLASH TITLE -->
+        <Label Content="Register at FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" />
+
+        <!-- Username text and a textbox for the input of the user. -->
+        <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8 -->
+        <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-180,0,0" />
+        <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding Username}" />
+
+        <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-160,-130,0,0" />
+        <TextBox Name="PasswordInput" HorizontalAlignment="center" VerticalAlignment="Center" Width="100" Margin="0,-130,0,0" Text="{Binding Password}" />
+
+       
+        <Button Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Margin="-90,200,0,0" Command="{Binding RegisterNewUserCommand}" />
+
+
+
+        <!-- Step by step
+1. Inputrutor för att logga in.
+2. Combobox för att välja land.
+3. "Register" -knapp för att skapa en användare, sen skicka till baka till Mainwindow.xaml
+4. Om användarnamnet är taget, varningmeddelande.
+-->
     </Grid>
 </Window>
