@@ -8,6 +8,9 @@ namespace FitTrackApp.Models
 {
     class AdminUser : User
     {
+        public void ManageAllWorkouts()
+        {
 
+        }
     }
 }

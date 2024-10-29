@@ -20,9 +20,9 @@
         <TextBox Name="PasswordInput" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="94, -250, 0, 0" Text="{Binding Password}" />
 
         <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/button?view=netframeworkdesktop-4.8-->
-        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="94, -200,0,0" Command="{Binding LoginComma}" />
+        <Button Content="Sign In" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="94, -200,0,0" Command="{Binding SignInCommand}" />
 
-        <Button Content="Register" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="144, -200,0,0" Command="{Binding RegisterComm}" />
+        <Button Content="Register" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="144, -200,0,0" Command="{Binding RegisterCommand}" />
 
         <TextBlock Name="WrongInput" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Red" Text="{Binding WrongInputPrompt}" Margin="144, -150, 0, 0" />
     </Grid>
