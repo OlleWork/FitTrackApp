@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitTrackApp.Models
 {
-    public class User : Person
+    public class User : Person // Inherits from Person (abstract folder).
     {
         // This represents the users country and is also public property
         public string? Country { get; set; }
