@@ -23,7 +23,7 @@ namespace FitTrackApp.Views
         public RegisterWindow()
         {
             InitializeComponent();
-            DataContext = new RegisterViewModel();
+           
         }
     }
 }
