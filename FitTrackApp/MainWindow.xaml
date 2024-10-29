@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FitTrack" Height="450" Width="800">
     <Grid>
+        <!-- SPLASH TITLE -->
+        <Label Content="FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" />
 
+        <!-- Username text and a textbox for the input of the user. -->
+        <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8 -->
+        <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,-299,0,0" />
+        <TextBox Name="UsernameInput" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="94,-299,0,0" Text="{Binding Username}" />
+
+        <!-- Password text and a textbox for the input for the user -->
+        <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,-250,0,0" />
+        <TextBox Name="PasswordInput" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="94, -250, 0, 0" Text="{Binding Password}" />
+
+        <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/button?view=netframeworkdesktop-4.8-->
+        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="94, -200,0,0" Command="{Binding LoginComma}" />
+
+        <Button Content="Register" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="144, -200,0,0" Command="{Binding RegisterComm}" />
+
+        <TextBlock Name="WrongInput" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Red" Text="{Binding WrongInputPrompt}" Margin="144, -150, 0, 0" />
     </Grid>
 </Window>
