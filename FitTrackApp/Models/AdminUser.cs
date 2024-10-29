@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FitTrackApp.Models
+﻿namespace FitTrackApp.Models
 {
-    class AdminUser : User
+    internal class AdminUser : User
     {
         public void ManageAllWorkouts()
         {
-
         }
     }
 }

@@ -3,12 +3,8 @@ using System.Runtime.CompilerServices;
 
 namespace FitTrack.PropChange
 {
-    class ViewModelBase : INotifyPropertyChanged
+    internal class ViewModelBase : INotifyPropertyChanged
     {
-
-
-
-
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
@@ -17,4 +13,3 @@ namespace FitTrack.PropChange
         }
     }
 }
-
