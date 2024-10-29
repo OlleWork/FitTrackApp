@@ -21,7 +21,43 @@
        
         <Button Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Margin="-90,200,0,0" Command="{Binding RegisterNewUserCommand}" />
 
+        <ComboBox SelectedItem="{Binding CountryComboBox}" Width="155" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-55,-80,0,0">
+            <ComboBoxItem Content="Afghanistan"/>
+            <ComboBoxItem Content="Albania"/>
+            <ComboBoxItem Content="Algeria"/>
+            <ComboBoxItem Content="Andorra"/>
+            <ComboBoxItem Content="Angola"/>
+            <ComboBoxItem Content="Antigua and Barbuda"/>
+            <ComboBoxItem Content="Argentina"/>
+            <ComboBoxItem Content="Armenia"/>
+            <ComboBoxItem Content="Australia"/>
+            <ComboBoxItem Content="Austrian Empire"/>
+            <ComboBoxItem Content="Azerbaijan"/>
+            <ComboBoxItem Content="Baden"/>
+            <ComboBoxItem Content="Bahamas, The"/>
+            <ComboBoxItem Content="Bahrain"/>
+            <ComboBoxItem Content="Bangladesh"/>
+            <ComboBoxItem Content="Barbados"/>
+            <ComboBoxItem Content="Bavaria"/>
+            <ComboBoxItem Content="Belarus"/>
+            <ComboBoxItem Content="Belgium"/>
+            <ComboBoxItem Content="Belize"/>
+            <ComboBoxItem Content="Benin (Dahomey)"/>
+            <ComboBoxItem Content="Bolivia"/>
+            <ComboBoxItem Content="Bosnia and Herzegovina"/>
+            <ComboBoxItem Content="Botswana"/>
+            <ComboBoxItem Content="Brazil"/>
+            <ComboBoxItem Content="Brunei"/>
+            <ComboBoxItem Content="Brunswick and Lüneburg"/>
+            <ComboBoxItem Content="Bulgaria"/>
+            <ComboBoxItem Content="Burkina Faso (Upper Volta)"/>
+            <ComboBoxItem Content="Burma"/>
+            <ComboBoxItem Content="Burundi"/>
+        </ComboBox>
 
+
+
+        
 
         <!-- Step by step
 1. Inputrutor för att logga in.
