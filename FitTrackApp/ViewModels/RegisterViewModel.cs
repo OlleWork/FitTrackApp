@@ -11,14 +11,74 @@ namespace FitTrackApp.ViewModels
     {
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
 
-        // Registration form fields linked to properties
-        public string UsernameInput { get; set; }
+        // Private fields
+        private string _usernameinput;
 
-        public string PasswordInput { get; set; }
-        public string ConfirmPasswordInput { get; set; }
-        public string CountryComboBox { get; set; }
-        public string SecurityQuestion { get; set; }
-        public string SecurityAnswer { get; set; }
+        private string _passwordInput;
+        private string _confirmPasswordInput;
+        private string _countryComboBox;
+        private string _securityQuestion;
+        private string _securityAnswer;
+
+        public string UsernameInput
+        {
+            get => _usernameinput;
+            set
+            {
+                _usernameinput = value;
+                OnPropertyChanged(nameof(UsernameInput));
+            }
+        }
+
+        public string PasswordInput
+        {
+            get => _passwordInput;
+            set
+            {
+                _passwordInput = value;
+                OnPropertyChanged(nameof(PasswordInput));
+            }
+        }
+
+        public string ConfirmPasswordInput
+        {
+            get => _confirmPasswordInput;
+            set
+            {
+                _confirmPasswordInput = value;
+                OnPropertyChanged(nameof(ConfirmPasswordInput));
+            }
+        }
+
+        public string CountryComboBox
+        {
+            get => _countryComboBox;
+            set
+            {
+                _countryComboBox = value;
+                OnPropertyChanged(nameof(CountryComboBox));
+            }
+        }
+
+        public string SecurityQuestion
+        {
+            get => _securityQuestion;
+            set
+            {
+                _securityQuestion = value;
+                OnPropertyChanged(nameof(SecurityQuestion));
+            }
+        }
+
+        public string SecurityAnswer
+        {
+            get => _securityAnswer;
+            set
+            {
+                _securityAnswer = value;
+                OnPropertyChanged(nameof(SecurityAnswer));
+            }
+        }
 
         // Collection of available security questions
         public ObservableCollection<string> SecurityQuestions { get; set; }
@@ -42,12 +102,12 @@ namespace FitTrackApp.ViewModels
 
             // Adding questions for the user to answer.
             SecurityQuestions = new ObservableCollection<string>
-        {
+            {
             "What's the name of your first pet?",
             "What was the name of the first school you went to?",
             "What is your favorite food?",
             "What city were you born in?"
-        };
+            };
         }
 
         private void RegisterNewUser() // Takes care of new user registrations.
@@ -57,7 +117,12 @@ namespace FitTrackApp.ViewModels
                 MessageBox.Show("Passwords do not match.", "Registration Failed.", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else
+
+            bool usernameCheck = UserService.Instance.Users.Any(user => user.Username == UsernameInput);
+            if (usernameCheck)
+            {
+                MessageBox.Show("Username occupied. Please choose another.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             {
                 var newUser = new User() // Creates a new user with the registration details.
                 {

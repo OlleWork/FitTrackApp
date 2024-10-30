@@ -13,14 +13,34 @@ namespace FitTrackApp.ViewModels
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
 
         // Fields connected to the username and password in the login form
-        public string? UsernameInput { get; set; }
+        private string _username;
 
-        public string? PasswordInput { get; set; }
+        private string _password;
+
+        public string UsernameInput
+        {
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(UsernameInput));
+            }
+        }
+
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
 
         // Actions for sign-in and registration. Kind of like a bridge between the UI and code.
-        public ICommand? SignInCommand { get; } // Used to
+        public ICommand SignInCommand { get; } //
 
-        public ICommand? RegisterCommand { get; }
+        public ICommand RegisterCommand { get; }
 
         private User _onlineUser; // This holds information about the user that is online logged in.
         private List<User> _users; // This is a list that stores all users registered in the system.
@@ -36,7 +56,7 @@ namespace FitTrackApp.ViewModels
         private void SignIn()
         {
             _onlineUser = UserService.Instance.Users.FirstOrDefault(u =>
-                u.Username == UsernameInput && u.Password == PasswordInput);
+                u.Username == UsernameInput && u.Password == Password);
 
             if (_onlineUser != null)
             {

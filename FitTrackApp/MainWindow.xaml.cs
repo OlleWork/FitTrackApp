@@ -21,9 +21,8 @@ namespace FitTrackApp
             if (this.DataContext is MainWindowViewModel viewModel)
             {
                 // Update the PasswordInput property in the ViewModel with the current password value
-                viewModel.PasswordInput = ((PasswordBox)sender).Password;
+                viewModel.Password = ((PasswordBox)sender).Password;
             }
         }
     }
-    
 }

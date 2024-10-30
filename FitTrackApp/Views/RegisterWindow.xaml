@@ -14,7 +14,7 @@
         <!-- Username text and a textbox for the input of the user. -->
         <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8 -->
         <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-180,0,0" FontFamily="Arial" />
-        <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding Username}" FontFamily="Arial" />
+        <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding UsernameInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="Arial" />
 
         <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-160,-130,0,0" FontFamily="Arial" />
         <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-130,0,0" Width="100" FontFamily="Arial" />
@@ -231,8 +231,7 @@
         <!-- Security Answer TextBox, bound to SecurityAnswer property in RegisterViewModel -->
         <TextBox Text="{Binding SecurityAnswer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,70,0,0" />
 
-        <!-- Step by step
-3. "Register" -knapp för att skapa en användare, sen skicka till baka till Mainwindow.xaml
+<!-- Step by step
 4. Om användarnamnet är taget, varningmeddelande.
 -->
     </Grid>

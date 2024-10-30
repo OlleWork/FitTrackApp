@@ -7,7 +7,6 @@ namespace FitTrackApp.VMB_RC
     {
         private static UserService _instance;
         public static UserService Instance => _instance ??= new UserService();
-
         public ObservableCollection<User> Users { get; } = new ObservableCollection<User>();
         public User CurrentUser { get; set; }
 
@@ -16,12 +15,23 @@ namespace FitTrackApp.VMB_RC
             // Lägg till en standardanvändare för test.
             Users.Add(new User
             {
-                Username = "1",
-                Password = "1",
+                Username = "admin",
+                Password = "password",
                 Workouts = new ObservableCollection<Workout>
                     {
                     new CardioWorkout(DateTime.Now, "Cardio", 90),
                     new StrengthWorkout(DateTime.Now, "Strength", 50)
+                    }
+            });
+
+            Users.Add(new User
+            {
+                Username = "user",
+                Password = "password",
+                Workouts = new ObservableCollection<Workout>
+                    {
+                    new CardioWorkout(DateTime.Now, "Cardio", 40),
+                    new StrengthWorkout(DateTime.Now, "Strength", 90)
                     }
             });
         }
