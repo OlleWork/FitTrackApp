@@ -74,6 +74,8 @@ namespace FitTrackApp.ViewModels
             }
         }
 
+
+
         // Data binding.
         public event PropertyChangedEventHandler PropertyChanged;
 
