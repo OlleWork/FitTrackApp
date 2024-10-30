@@ -6,5 +6,13 @@
         mc:Ignorable="d"
         Title="WorkoutsWindow" Height="450" Width="800">
     <Grid>
+        <DataGrid ItemsSource="{Binding Workouts}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Workout Type" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Workout Date" Binding="{Binding Date}" />
+                <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </Grid>
 </Window>

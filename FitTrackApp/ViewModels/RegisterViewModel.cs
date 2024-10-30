@@ -9,6 +9,8 @@ namespace FitTrackApp.ViewModels
 {
     public class RegisterViewModel : INotifyPropertyChanged
     {
+
+        public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
         // Registration form fields linked to properties
         public string UsernameInput { get; set; }
 

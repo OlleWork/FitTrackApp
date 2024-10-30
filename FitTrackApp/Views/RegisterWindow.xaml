@@ -7,7 +7,7 @@
         Title="RegisterWindow" Height="450" Width="800">
     <Grid>
         <!-- SPLASH TITLE -->
-        <Label Content="Register at FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" />
+        <Label Content="Register at FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold"/>
 
         <!-- Username text and a textbox for the input of the user. -->
         <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8 -->

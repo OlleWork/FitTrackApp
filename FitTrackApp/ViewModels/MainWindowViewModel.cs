@@ -1,6 +1,7 @@
 ﻿using FitTrackApp.Models;
 using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
@@ -9,6 +10,8 @@ namespace FitTrackApp.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+
+        public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
         // Fields connected to the username and password in the login form
         public string? UsernameInput { get; set; }
 

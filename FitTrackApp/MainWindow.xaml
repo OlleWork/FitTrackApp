@@ -25,5 +25,6 @@
         <Button Content="Register" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="144, -200,0,0" Command="{Binding RegisterCommand}" />
 
         <TextBlock Name="WrongInput" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Red" Text="{Binding WrongInputPrompt}" Margin="144, -150, 0, 0" />
+        
     </Grid>
 </Window>

@@ -9,5 +9,11 @@
             CaloriesBurned = (int)(Distance * Duration.TotalHours * 5); // Formula for the calculation of the calories. (Fråga om det ser bra ut imorgon, 5 calories per gram efter research online)-.
             return CaloriesBurned; // Returns answer.
         }
+        public CardioWorkout(DateTime date, string type, int caloriesburned)
+        {
+            Date = date;
+            Type = type;
+            CaloriesBurned = caloriesburned;
+        }
     }
 }
