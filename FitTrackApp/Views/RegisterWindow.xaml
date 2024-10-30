@@ -12,18 +12,21 @@
         <Label Content="Register at FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold" />
 
         <!-- Username text and a textbox for the input of the user. -->
-        <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8 -->
         <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-180,0,0" FontFamily="Arial" />
         <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding UsernameInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="Arial" />
-
+        
+        <!-- Password text and a passwordbox for the input for the user -->
         <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-160,-130,0,0" FontFamily="Arial" />
         <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-130,0,0" Width="100" FontFamily="Arial" />
 
+        <!-- For the confirmation of the password -->
         <Label Content="Confirm" HorizontalAlignment="center" VerticalAlignment="Center" Width="100" Margin="-110,-80,0,0" FontFamily="Arial" />
         <PasswordBox x:Name="ConfirmPasswordBox" PasswordChanged="ConfirmPasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-80,0,0" Width="100" FontFamily="Arial" />
-
+       
+        <!-- Comically large register button so no one can miss it lol -->
         <Button Content="Register" FontSize="34" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="50" Margin="-70,150,0,0" Command="{Binding RegisterNewUserCommand}" />
 
+        <!-- A combobox of every. country. For the drop down menu.-->
         <Label Content="Country" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-30,0,0" />
         <ComboBox SelectedItem="{Binding CountryComboBox}" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-30,0,0">
             <ComboBoxItem Content="Afghanistan" />
@@ -192,7 +195,7 @@
             <ComboBoxItem Content="Sudan" />
             <ComboBoxItem Content="South Sudan" />
             <ComboBoxItem Content="Suriname" />
-            <ComboBoxItem Content="SWEDEN" />
+            <ComboBoxItem Content="SWEDEN" /> 
             <ComboBoxItem Content="Switzerland" />
             <ComboBoxItem Content="Syria" />
             <ComboBoxItem Content="Taiwan" />
@@ -221,18 +224,15 @@
             <ComboBoxItem Content="Zambia" />
             <ComboBoxItem Content="Zimbabwe" />
         </ComboBox>
-
+        <!-- Text asking to pick a security question followed up with another combobox/dropdown menu with a selection of questions. Bound to viewmodel. -->
         <Label Content="Pick a Question" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-200,20, 0, 0" />
         <ComboBox ItemsSource="{Binding SecurityQuestions}"
                   SelectedItem="{Binding SelectedSecurityQuestion, Mode=TwoWay}"
                   HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" />
 
+        
         <Label Content="Your Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,70, 0, 0" />
         <!-- Security Answer TextBox, bound to SecurityAnswer property in RegisterViewModel -->
         <TextBox Text="{Binding SecurityAnswer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,70,0,0" />
-
-<!-- Step by step
-4. Om användarnamnet är taget, varningmeddelande.
--->
     </Grid>
 </Window>

@@ -11,8 +11,8 @@ namespace FitTrackApp.ViewModels
     {
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
 
-        // Private fields
-        private string _usernameinput;
+        // Private fields in order to store inputs for the registration from the user. 
+        private string _usernameinput; 
 
         private string _passwordInput;
         private string _confirmPasswordInput;
@@ -20,17 +20,17 @@ namespace FitTrackApp.ViewModels
         private string _securityQuestion;
         private string _securityAnswer;
 
-        public string UsernameInput
+        public string UsernameInput // Username input with a change notification. Always up to date. Vice versa for the rest of them below
         {
             get => _usernameinput;
             set
             {
                 _usernameinput = value;
-                OnPropertyChanged(nameof(UsernameInput));
+                OnPropertyChanged(nameof(UsernameInput)); // Notifies view of the changes. Vice versa for the rest of them below
             }
         }
 
-        public string PasswordInput
+        public string PasswordInput 
         {
             get => _passwordInput;
             set
@@ -40,7 +40,7 @@ namespace FitTrackApp.ViewModels
             }
         }
 
-        public string ConfirmPasswordInput
+        public string ConfirmPasswordInput 
         {
             get => _confirmPasswordInput;
             set
@@ -80,7 +80,7 @@ namespace FitTrackApp.ViewModels
             }
         }
 
-        // Collection of available security questions
+        // Collection of free security questions
         public ObservableCollection<string> SecurityQuestions { get; set; }
 
         // Property to hold the user's selected security question
@@ -118,10 +118,10 @@ namespace FitTrackApp.ViewModels
                 return;
             }
 
-            bool usernameCheck = UserService.Instance.Users.Any(user => user.Username == UsernameInput);
+            bool usernameCheck = UserService.Instance.Users.Any(user => user.Username == UsernameInput); // Bool double checks incase the username is occupied. 
             if (usernameCheck)
             {
-                MessageBox.Show("Username occupied. Please choose another.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Username occupied. Please choose another.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error); // Error message incase of occupation of username. 
             }
             {
                 var newUser = new User() // Creates a new user with the registration details.
@@ -136,7 +136,7 @@ namespace FitTrackApp.ViewModels
                 UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
 
                 MainWindow main = new MainWindow();
-                main.Show();
+                main.Show(); // Directs you back to MainWindow.
             }
         }
 
