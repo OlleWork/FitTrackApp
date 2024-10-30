@@ -13,6 +13,5 @@
                 <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" />
             </DataGrid.Columns>
         </DataGrid>
-        
     </Grid>
 </Window>

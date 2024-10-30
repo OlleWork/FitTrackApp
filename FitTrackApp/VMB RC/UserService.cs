@@ -6,8 +6,8 @@ namespace FitTrackApp.VMB_RC
     public class UserService
     {
         private static UserService _instance;
+        public static UserService Instance => _instance ??= new UserService();
 
-        public static UserService Instance => _instance ??= new UserService(); // Public property to access the singleton instance
         public ObservableCollection<User> Users { get; } = new ObservableCollection<User>();
         public User CurrentUser { get; set; }
 

@@ -9,8 +9,8 @@ namespace FitTrackApp.ViewModels
 {
     public class RegisterViewModel : INotifyPropertyChanged
     {
-
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
+
         // Registration form fields linked to properties
         public string UsernameInput { get; set; }
 
@@ -68,7 +68,7 @@ namespace FitTrackApp.ViewModels
                     SecurityAnswer = SecurityAnswer
                 };
 
-                _users.Add(newUser); // Adds user to the list in order to save it.
+                UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
 
                 MainWindow main = new MainWindow();
                 main.Show();

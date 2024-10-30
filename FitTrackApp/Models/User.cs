@@ -10,7 +10,7 @@ namespace FitTrackApp.Models
         public string? SecurityQuestion { get; set; } // Vice versa but with a security question for password recov.
         public string? SecurityAnswer { get; set; } // Vice versa but with a security answer for password recov.
 
-        public ObservableCollection<Workout> Workouts { get; set; } = new ObservableCollection<Workout>(); // Declares Workouts for UserService. 
+        public ObservableCollection<Workout> Workouts { get; set; } = new ObservableCollection<Workout>(); // Declares Workouts for UserService.
 
         public override bool SignIn(string username, string password) // Verifies if the username and password are correct.
         {

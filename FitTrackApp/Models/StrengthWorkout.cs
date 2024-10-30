@@ -9,6 +9,7 @@
             CaloriesBurned = Repetitions * 2;
             return CaloriesBurned; //
         }
+
         public StrengthWorkout(DateTime date, string type, int repetitions)
         {
             Date = date;

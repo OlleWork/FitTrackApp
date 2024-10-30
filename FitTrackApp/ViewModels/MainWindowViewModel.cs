@@ -10,8 +10,8 @@ namespace FitTrackApp.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
+
         // Fields connected to the username and password in the login form
         public string? UsernameInput { get; set; }
 
@@ -35,18 +35,20 @@ namespace FitTrackApp.ViewModels
 
         private void SignIn()
         {
-            _onlineUser = _users.FirstOrDefault(u => u.SignIn(UsernameInput, PasswordInput));
+            _onlineUser = UserService.Instance.Users.FirstOrDefault(u =>
+                u.Username == UsernameInput && u.Password == PasswordInput);
+
             if (_onlineUser != null)
             {
                 // Opens WorkoutWindow after successful login!
-                MessageBox.Show("Login Successful! ", "Login Successful", MessageBoxButton.OK);
+                MessageBox.Show("Login Successful!", "Login", MessageBoxButton.OK);
                 WorkoutsWindow workoutsWindow = new WorkoutsWindow();
                 workoutsWindow.Show();
             }
             else
             {
                 // This let's you know what you've written is incorrect through a prompt.
-                MessageBox.Show("Invalid username or password. Please try again.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
