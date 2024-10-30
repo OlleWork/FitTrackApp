@@ -2,7 +2,6 @@
 using FitTrackApp.ViewModels;
 using System.Windows;
 
-
 namespace FitTrackApp.Views
 {
     /// <summary>
@@ -13,7 +12,7 @@ namespace FitTrackApp.Views
         public RegisterWindow()
         {
             InitializeComponent();
-           DataContext = new RegisterViewModel(new List<User>());
+            DataContext = new RegisterViewModel(new List<User>());
         }
     }
 }

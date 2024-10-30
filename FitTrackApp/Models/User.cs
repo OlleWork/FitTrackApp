@@ -4,6 +4,7 @@
     {
         // This represents the users country and is also public property
         public string? Country { get; set; }
+
         public string? SecurityQuestion { get; set; } // Vice versa but with a security question for password recov.
         public string? SecurityAnswer { get; set; } // Vice versa but with a security answer for password recov.
 
