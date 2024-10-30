@@ -15,13 +15,13 @@ namespace FitTrackApp
             DataContext = new MainWindowViewModel();
         }
 
-        // Event handler for PasswordBox
-        private void PasswordInput(object sender, RoutedEventArgs e)
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            // Check if the DataContext is of type RegisterViewModel
+            // Check if the DataContext is of type MainViewModel
             if (this.DataContext is MainWindowViewModel viewModel)
             {
-                viewModel.PasswordInput = ((PasswordBox)sender).Password;  // Update the PasswordInput property in the ViewModel with the current password value.
+                // Update the PasswordInput property in the ViewModel with the current password value
+                viewModel.PasswordInput = ((PasswordBox)sender).Password;
             }
         }
     }

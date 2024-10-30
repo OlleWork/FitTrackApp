@@ -11,17 +11,17 @@
 
         <!-- Username text and a textbox for the input of the user. -->
         <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8 -->
-        <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-180,0,0" />
-        <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding Username}" />
+        <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-180,0,0" FontFamily="Arial"/>
+        <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding Username}" FontFamily="Arial"/>
 
-        <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-160,-130,0,0" />
-        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-130,0,0" Width="100"/>
+        <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-160,-130,0,0" FontFamily="Arial"/>
+        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-130,0,0" Width="100" FontFamily="Arial"/>
 
-        <Label Content="Confirm" HorizontalAlignment="center" VerticalAlignment="Center" Width="100" Margin="-110,-80,0,0"/>
-        <PasswordBox x:Name="ConfirmPasswordBox" PasswordChanged="ConfirmPasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-80,0,0" Width="100"/>
+        <Label Content="Confirm" HorizontalAlignment="center" VerticalAlignment="Center" Width="100" Margin="-110,-80,0,0" FontFamily="Arial"/>
+        <PasswordBox x:Name="ConfirmPasswordBox" PasswordChanged="ConfirmPasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-80,0,0" Width="100" FontFamily="Arial"/>
 
 
-        <Button Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Margin="-90,200,0,0" Command="{Binding RegisterNewUserCommand}" />
+        <Button Content="Register" FontSize="34" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="50" Margin="-70,150,0,0" Command="{Binding RegisterNewUserCommand}" />
 
         <Label Content="Country" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-30,0,0"/>
         <ComboBox SelectedItem="{Binding CountryComboBox}" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-30,0,0">
@@ -221,7 +221,16 @@
             <ComboBoxItem Content="Zimbabwe" />
         </ComboBox>
 
-        <TextBox Text="{Binding SecurityQuestion, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" />
+
+        <Label Content="Pick a Question" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-200,20, 0, 0" />
+        <ComboBox ItemsSource="{Binding SecurityQuestions}" 
+                  SelectedItem="{Binding SelectedSecurityQuestion, Mode=TwoWay}" 
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0"/>
+
+
+        <Label Content="Your Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,70, 0, 0" />
+        <!-- Security Answer TextBox, bound to SecurityAnswer property in RegisterViewModel -->
+        <TextBox Text="{Binding SecurityAnswer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,70,0,0" />
 
 
         <!-- Step by step

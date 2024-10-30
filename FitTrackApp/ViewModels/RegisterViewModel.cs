@@ -1,5 +1,6 @@
 ﻿using FitTrackApp.Models;
 using FitTrackApp.VMB_RC;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
@@ -17,6 +18,15 @@ namespace FitTrackApp.ViewModels
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
 
+        // Collection of available security questions
+        public ObservableCollection<string> SecurityQuestions { get; set; }
+
+        // Property to hold the user's selected security question
+        public string SelectedSecurityQuestion { get; set; }
+
+        // Property to hold the user's answer to the selected security question
+ 
+
         // Action for registration command
         public ICommand RegisterNewUserCommand { get; }
 
@@ -28,6 +38,15 @@ namespace FitTrackApp.ViewModels
         {
             RegisterNewUserCommand = new RelayCommand(_ => RegisterNewUser());
             _users = users;
+
+            // Adding questions for the user to answer. 
+            SecurityQuestions = new ObservableCollection<string>
+        {
+            "What's the name of your first pet?",
+            "What was the name of the first school you went to?",
+            "What is your favorite food?",
+            "What city were you born in?"
+        };
         }
 
         private void RegisterNewUser() // Takes care of new user registrations.
