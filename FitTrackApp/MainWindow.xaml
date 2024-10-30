@@ -17,7 +17,7 @@
 
         <!-- Password text and a textbox for the input for the user -->
         <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,-250,0,0" />
-        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="94,-249,0,0" Width="100"/>
+        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="94,-249,0,0" Width="100" />
 
         <!-- Temp link for reference, https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/button?view=netframeworkdesktop-4.8-->
         <Button Content="Sign In" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="94, -200,0,0" Command="{Binding SignInCommand}" />

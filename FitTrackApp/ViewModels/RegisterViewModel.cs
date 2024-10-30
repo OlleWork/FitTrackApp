@@ -25,7 +25,6 @@ namespace FitTrackApp.ViewModels
         public string SelectedSecurityQuestion { get; set; }
 
         // Property to hold the user's answer to the selected security question
- 
 
         // Action for registration command
         public ICommand RegisterNewUserCommand { get; }
@@ -39,7 +38,7 @@ namespace FitTrackApp.ViewModels
             RegisterNewUserCommand = new RelayCommand(_ => RegisterNewUser());
             _users = users;
 
-            // Adding questions for the user to answer. 
+            // Adding questions for the user to answer.
             SecurityQuestions = new ObservableCollection<string>
         {
             "What's the name of your first pet?",
@@ -73,8 +72,6 @@ namespace FitTrackApp.ViewModels
                 main.Show();
             }
         }
-
-
 
         // Data binding.
         public event PropertyChangedEventHandler PropertyChanged;

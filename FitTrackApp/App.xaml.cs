@@ -1,4 +1,6 @@
-﻿using System.Configuration;
+﻿using FitTrackApp.Models;
+using FitTrackApp.ViewModels;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -10,5 +12,4 @@ namespace FitTrackApp
     public partial class App : Application
     {
     }
-
 }
