@@ -14,5 +14,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Text="{Binding DisplayUser}" FontSize="14" FontFamily="Arial" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Button Content="User" Width="37" Height="23" FontFamily="Arial" FontSize="14" Margin="0,1,80,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding UserInfo}"/>
     </Grid>
 </Window>
