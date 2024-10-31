@@ -6,29 +6,39 @@
         xmlns:viewmodels="clr-namespace:FitTrackApp.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="Register at FitTrack!" Height="450" Width="800">
     <Grid>
-        <!-- SPLASH TITLE -->
-        <Label Content="Register at FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold" />
 
-        <!-- Username text and a textbox for the input of the user. -->
-        <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-180,0,0" FontFamily="Arial" />
-        <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,-180,0,0" Text="{Binding UsernameInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="Arial" />
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /> <!-- Title -->
+            <RowDefinition Height="Auto" /> <!-- Main Points -->
+            <RowDefinition Height="Auto" /> <!-- Register Button-->  
+        </Grid.RowDefinitions>
+
+        <!-- SPLASH TITLE -->
+        <TextBlock Text="Register at FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold" Grid.Row="0" />
+
+
+            
+            <!-- Username text and a textbox for the input of the user. -->
+    
+            <Label Content="Username" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0,-40,170,0" />
+            <TextBox Name="UsernameInput" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Text="{Binding UsernameInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="Arial" FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0,-40,0,0"/>
+
         <!-- Password text and a passwordbox for the input for the user -->
-        <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-160,-130,0,0" FontFamily="Arial" />
-        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-130,0,0" Width="100" FontFamily="Arial" />
+
+        <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0,10,170,0"/>
+        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Width="100" FontFamily="Arial" Margin="0,10,0,0" />
 
         <!-- For the confirmation of the password -->
-        <Label Content="Confirm" HorizontalAlignment="center" VerticalAlignment="Center" Width="100" Margin="-110,-80,0,0" FontFamily="Arial" />
-        <PasswordBox x:Name="ConfirmPasswordBox" PasswordChanged="ConfirmPasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-80,0,0" Width="100" FontFamily="Arial" />
-       
-        <!-- Comically large register button so no one can miss it lol -->
-        <Button Content="Register" FontSize="34" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="50" Margin="-70,150,0,0" Command="{Binding RegisterNewUserCommand}" />
+
+        <Label Content="Confirm" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" FontSize="14" FontFamily="Arial" Margin="0,60,115,0" />
+        <PasswordBox x:Name="ConfirmPasswordBox" PasswordChanged="ConfirmPasswordBox_PasswordChanged" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Width="100" FontFamily="Arial" Margin="0,60,0,0"/>
 
         <!-- A combobox of every. country. For the drop down menu.-->
-        <Label Content="Country" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-160,-30,0,0" />
-        <ComboBox SelectedItem="{Binding CountryComboBox}" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-30,0,0">
+
+        <Label Content="Country" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial" FontSize="14" Margin="0,110,155,0" />
+        <ComboBox SelectedItem="{Binding CountryComboBox}" Width="100" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,110,0,0">
             <ComboBoxItem Content="Afghanistan" />
             <ComboBoxItem Content="Albania" />
             <ComboBoxItem Content="Algeria" />
@@ -195,7 +205,7 @@
             <ComboBoxItem Content="Sudan" />
             <ComboBoxItem Content="South Sudan" />
             <ComboBoxItem Content="Suriname" />
-            <ComboBoxItem Content="SWEDEN" /> 
+            <ComboBoxItem Content="SWEDEN" />
             <ComboBoxItem Content="Switzerland" />
             <ComboBoxItem Content="Syria" />
             <ComboBoxItem Content="Taiwan" />
@@ -224,15 +234,22 @@
             <ComboBoxItem Content="Zambia" />
             <ComboBoxItem Content="Zimbabwe" />
         </ComboBox>
+
         <!-- Text asking to pick a security question followed up with another combobox/dropdown menu with a selection of questions. Bound to viewmodel. -->
-        <Label Content="Pick a Question" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-200,20, 0, 0" />
+
+        <Label Content="Select Security Question" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0,160,260,0"/>
         <ComboBox ItemsSource="{Binding SecurityQuestions}"
                   SelectedItem="{Binding SelectedSecurityQuestion, Mode=TwoWay}"
-                  HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" />
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" FontSize="14" FontFamily="Arial" Margin="0,160,0,0"/>
 
-        
-        <Label Content="Your Answer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,70, 0, 0" />
         <!-- Security Answer TextBox, bound to SecurityAnswer property in RegisterViewModel -->
-        <TextBox Text="{Binding SecurityAnswer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,70,0,0" />
+
+        <Label Content="Your Answer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0,210,190,0"/>
+        <TextBox Text="{Binding SecurityAnswer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" FontSize="14" FontFamily="Arial" Margin="0,210,0,0" />
+       
+
+        <!-- Comically large register button so no one can miss it lol -->
+
+        <Button Content="Register" FontSize="34" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="50" Margin="0,290,0,0" Command="{Binding RegisterNewUserCommand}" />
     </Grid>
 </Window>

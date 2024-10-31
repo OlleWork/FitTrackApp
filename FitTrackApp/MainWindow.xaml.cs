@@ -15,6 +15,7 @@ namespace FitTrackApp
             DataContext = new MainWindowViewModel();
         }
 
+
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             // Check if the DataContext is of type MainViewModel
