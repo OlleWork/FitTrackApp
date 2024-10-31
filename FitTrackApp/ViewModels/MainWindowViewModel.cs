@@ -62,6 +62,7 @@ namespace FitTrackApp.ViewModels
 
             if (_onlineUser != null)
             {
+                UserService.Instance.CurrentUser = _onlineUser; // Sets the current user in the UserService to the one who's online. 
                 // Opens WorkoutWindow after successful login!
                 MessageBox.Show("Login Successful!", "Login", MessageBoxButton.OK);
                 WorkoutsWindow workoutsWindow = new WorkoutsWindow();

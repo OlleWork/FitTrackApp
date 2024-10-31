@@ -13,5 +13,6 @@
                 <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" />
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock Text="{Binding DisplayUser}" FontSize="14" FontFamily="Arial" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"/>
     </Grid>
 </Window>
