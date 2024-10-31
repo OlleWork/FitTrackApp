@@ -1,5 +1,4 @@
 ﻿using FitTrackApp.Models;
-using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,16 +11,14 @@ namespace FitTrackApp.ViewModels
     {
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
 
-        // Private fields in order to store inputs for the registration from the user. 
-        private string _usernameinput; 
+        // Private fields in order to store inputs for the registration from the user.
+        private string _usernameinput;
 
         private string _passwordInput;
         private string _confirmPasswordInput;
         private string _countryComboBox;
         private string _securityQuestion;
         private string _securityAnswer;
-
-
 
         public string UsernameInput // Username input with a change notification. Always up to date. Vice versa for the rest of them below
         {
@@ -33,7 +30,7 @@ namespace FitTrackApp.ViewModels
             }
         }
 
-        public string PasswordInput 
+        public string PasswordInput
         {
             get => _passwordInput;
             set
@@ -43,7 +40,7 @@ namespace FitTrackApp.ViewModels
             }
         }
 
-        public string ConfirmPasswordInput 
+        public string ConfirmPasswordInput
         {
             get => _confirmPasswordInput;
             set
@@ -123,20 +120,20 @@ namespace FitTrackApp.ViewModels
                 return;
             }
 
-            bool usernameCheck = UserService.Instance.Users.Any(user => user.Username == UsernameInput); // Bool double checks incase the username is occupied. 
+            bool usernameCheck = UserService.Instance.Users.Any(user => user.Username == UsernameInput); // Bool double checks incase the username is occupied.
             if (usernameCheck)
             {
-                MessageBox.Show("Username occupied. Please choose another.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error); // Error message incase of occupation of username. 
+                MessageBox.Show("Username occupied. Please choose another.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error); // Error message incase of occupation of username.
             }
 
-            if (string.IsNullOrEmpty(UsernameInput) || 
+            if (string.IsNullOrEmpty(UsernameInput) ||
                 string.IsNullOrEmpty(PasswordInput) ||
                 string.IsNullOrEmpty(ConfirmPasswordInput) ||
                 string.IsNullOrEmpty(SelectedSecurityQuestion) ||
-                string.IsNullOrEmpty(SecurityAnswer)) 
-                {
+                string.IsNullOrEmpty(SecurityAnswer))
+            {
                 MessageBox.Show("Please fill in all required fields.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            }
             else
             {
                 var newUser = new User() // Creates a new user with the registration details.
@@ -146,17 +143,12 @@ namespace FitTrackApp.ViewModels
                     Country = CountryComboBox,
                     SecurityQuestion = SecurityQuestion,
                     SecurityAnswer = SecurityAnswer
-
                 };
                 UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
                 MessageBox.Show("Registraton Success!", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 closeRegisterWindow?.Invoke();
-
-               
             }
         }
-
-    
 
         // Data binding.
         public event PropertyChangedEventHandler PropertyChanged;

@@ -5,40 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="FitTrack" Height="450" Width="800">
-    
+
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- For the title -->
-            <RowDefinition Height="Auto"/> <!-- For the username -->
-            <RowDefinition Height="Auto"/> <!-- For the password -->
-            <RowDefinition Height="*"/> <!-- For the buttons -->
+            <RowDefinition Height="Auto" />
+            <!-- For the title -->
+            <RowDefinition Height="Auto" />
+            <!-- For the username -->
+            <RowDefinition Height="Auto" />
+            <!-- For the password -->
+            <RowDefinition Height="*" />
+            <!-- For the buttons -->
         </Grid.RowDefinitions>
-        
+
         <!-- SPLASH TITLE -->
         <Label Content="FitTrack" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="2" FontSize="50" />
 
         <!-- Username text and a textbox for the input of the user. -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Margin="5">
-        <Label Content="Username" VerticalAlignment="Center" Margin="5,0,105,0"/>
-        
+            <Label Content="Username" VerticalAlignment="Center" Margin="5,0,105,0" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Margin="5">
             <TextBox Name="UsernameInput"  Width="100" Height="20" Margin="0,0,-60,0"  Text="{Binding UsernameInput, UpdateSourceTrigger=PropertyChanged }" />
         </StackPanel>
 
-            <!-- Password text and a passwordbox for the input for the user -->
+        <!-- Password text and a passwordbox for the input for the user -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
-        <Label Content="Password" VerticalAlignment="Center" />
-        <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" Width="100" Height="20"/>
+            <Label Content="Password" VerticalAlignment="Center" />
+            <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" Width="100" Height="20" />
         </StackPanel>
-        
+
         <!-- Sign in and register buttons with data bindings to the viewmodel-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Margin="5, 0, -55 ,0" Height="20">
-        <Button Content="Sign In"  Width="50"  Command="{Binding SignInCommand}" />
+            <Button Content="Sign In"  Width="50"  Command="{Binding SignInCommand}" />
 
-        <Button Content="Register" Width="50" Command="{Binding RegisterCommand}" />
+            <Button Content="Register" Width="50" Command="{Binding RegisterCommand}" />
         </StackPanel>
     </Grid>
-
 </Window>

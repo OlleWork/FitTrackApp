@@ -1,5 +1,4 @@
 ﻿using FitTrackApp.ViewModels;
-using FitTrackApp.Views;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,10 +13,7 @@ namespace FitTrackApp
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-
-
         }
-
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
