@@ -1,5 +1,6 @@
 ﻿using FitTrackApp.Models;
 using FitTrackApp.ViewModels;
+using FitTrackApp.VMB_RC;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,7 +17,8 @@ namespace FitTrackApp.Views
             DataContext = new RegisterViewModel(new List<User>());
         }
 
-  
+
+        
    
         // Event handler for PasswordBox
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -27,6 +29,8 @@ namespace FitTrackApp.Views
                 viewModel.PasswordInput = ((PasswordBox)sender).Password;  // Update the PasswordInput property in the ViewModel with the current password value.
             }
         }
+
+
 
         // Event handler for ConfirmPasswordBox
         private void ConfirmPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)

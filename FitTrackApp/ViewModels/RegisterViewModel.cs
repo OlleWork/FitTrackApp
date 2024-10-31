@@ -20,6 +20,8 @@ namespace FitTrackApp.ViewModels
         private string _securityQuestion;
         private string _securityAnswer;
 
+
+
         public string UsernameInput // Username input with a change notification. Always up to date. Vice versa for the rest of them below
         {
             get => _usernameinput;
@@ -123,6 +125,16 @@ namespace FitTrackApp.ViewModels
             {
                 MessageBox.Show("Username occupied. Please choose another.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error); // Error message incase of occupation of username. 
             }
+
+            if (string.IsNullOrEmpty(UsernameInput) || 
+                string.IsNullOrEmpty(PasswordInput) ||
+                string.IsNullOrEmpty(ConfirmPasswordInput) ||
+                string.IsNullOrEmpty(SelectedSecurityQuestion) ||
+                string.IsNullOrEmpty(SecurityAnswer)) 
+                {
+                MessageBox.Show("Please fill in all required fields.", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            else
             {
                 var newUser = new User() // Creates a new user with the registration details.
                 {
@@ -131,14 +143,17 @@ namespace FitTrackApp.ViewModels
                     Country = CountryComboBox,
                     SecurityQuestion = SecurityQuestion,
                     SecurityAnswer = SecurityAnswer
+
                 };
-
                 UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
-
-                MainWindow main = new MainWindow();
-                main.Show(); // Directs you back to MainWindow.
+                MessageBox.Show("Registraton Success!", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MainWindow newWindow = new MainWindow();
+                newWindow.Show();
+               
             }
         }
+
+    
 
         // Data binding.
         public event PropertyChangedEventHandler PropertyChanged;

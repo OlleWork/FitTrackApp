@@ -37,7 +37,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Margin="5, 0, -55 ,0" Height="20">
         <Button Content="Sign In"  Width="50"  Command="{Binding SignInCommand}" />
 
-        <Button Content="Register" Width="50" Command="{Binding RegisterCommand}" Click="OpenRegisterWindow"/>
+        <Button Content="Register" Width="50" Command="{Binding RegisterCommand}" />
         </StackPanel>
     </Grid>
 
