@@ -91,7 +91,7 @@ namespace FitTrackApp.ViewModels
         // Action for registration command
         public ICommand RegisterNewUserCommand { get; }
 
-        public Action closeRegisterWindow { get; set; }
+        public Action closeRegisterWindow { get; set; } // Initiates the action to close RegisterWindow
 
         // Reference to the user list where the new user will be added after successful registration
         private List<User> _users;
@@ -146,7 +146,7 @@ namespace FitTrackApp.ViewModels
                 };
                 UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
                 MessageBox.Show("Registraton Success!", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                closeRegisterWindow?.Invoke();
+                closeRegisterWindow?.Invoke(); // This will close the RegisterWindow once Register has been hit. 
             }
         }
 

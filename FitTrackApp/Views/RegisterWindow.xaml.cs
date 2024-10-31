@@ -14,12 +14,12 @@ namespace FitTrackApp.Views
         public RegisterWindow()
         {
             InitializeComponent();
-            DataContext = new RegisterViewModel(new List<User>());
+            DataContext = new RegisterViewModel(new List<User>()); 
 
-            var userList = UserService.Instance.Users.ToList();
-            var viewModel = new RegisterViewModel(userList);
+            var userList = UserService.Instance.Users.ToList(); // This grabs the list of users from the UserService
+            var viewModel = new RegisterViewModel(userList); // Creates a viewmodel and then hands the list of users over. 
             viewModel.closeRegisterWindow = this.Close; // Pass the Close method from the window
-            DataContext = viewModel;
+            DataContext = viewModel; // Links datacontext to the viewmodel. For databinding. 
         }
 
         // Event handler for PasswordBox
