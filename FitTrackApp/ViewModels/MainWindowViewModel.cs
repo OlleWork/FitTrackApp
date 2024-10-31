@@ -37,6 +37,8 @@ namespace FitTrackApp.ViewModels
             }
         }
 
+        public Action closeforWorkout { get; set; }
+        public Action closeforReg { get; set; }
         // Actions for sign-in and registration. Kind of like a bridge between the UI and code.
         public ICommand SignInCommand { get; } //
 
@@ -64,19 +66,25 @@ namespace FitTrackApp.ViewModels
                 MessageBox.Show("Login Successful!", "Login", MessageBoxButton.OK);
                 WorkoutsWindow workoutsWindow = new WorkoutsWindow();
                 workoutsWindow.Show();
+                closeforWorkout?.Invoke();
             }
             else
             {
                 // This let's you know what you've written is incorrect through a prompt.
                 MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                
             }
         }
 
         private void OpenRegisterWindow()
         {
+            
             // Opens RegisterWindow
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
+            closeforReg?.Invoke(); // Closes the Mainwindow in order for registerwindow to open. 
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
