@@ -1,6 +1,7 @@
 ﻿using FitTrackApp.Models;
 using FitTrackApp.ViewModels;
 using FitTrackApp.VMB_RC;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,6 +16,12 @@ namespace FitTrackApp.Views
         {
             InitializeComponent();
             DataContext = new RegisterViewModel(new List<User>());
+
+            var userList = UserService.Instance.Users.ToList();
+            var viewModel = new RegisterViewModel(userList);
+            viewModel.closeRegisterWindow = this.Close; // Pass the Close method from the window
+            DataContext = viewModel;
+            
         }
 
 

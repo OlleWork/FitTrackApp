@@ -1,4 +1,5 @@
 ﻿using FitTrackApp.Models;
+using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -93,6 +94,8 @@ namespace FitTrackApp.ViewModels
         // Action for registration command
         public ICommand RegisterNewUserCommand { get; }
 
+        public Action closeRegisterWindow { get; set; }
+
         // Reference to the user list where the new user will be added after successful registration
         private List<User> _users;
 
@@ -147,8 +150,8 @@ namespace FitTrackApp.ViewModels
                 };
                 UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
                 MessageBox.Show("Registraton Success!", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                MainWindow newWindow = new MainWindow();
-                newWindow.Show();
+                closeRegisterWindow?.Invoke();
+
                
             }
         }
