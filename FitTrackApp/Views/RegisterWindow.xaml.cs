@@ -16,6 +16,8 @@ namespace FitTrackApp.Views
             DataContext = new RegisterViewModel(new List<User>());
         }
 
+  
+   
         // Event handler for PasswordBox
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {

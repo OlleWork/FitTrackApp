@@ -250,6 +250,6 @@
 
         <!-- Comically large register button so no one can miss it lol -->
 
-        <Button Content="Register" FontSize="34" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="50" Margin="0,290,0,0" Command="{Binding RegisterNewUserCommand}" />
+        <Button Content="Register" FontSize="34" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="50" Margin="0,290,0,0" Command="{Binding RegisterNewUserCommand}"  />
     </Grid>
 </Window>
