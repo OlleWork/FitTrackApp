@@ -18,6 +18,7 @@ namespace FitTrackApp.ViewModels
         public string DisplayUser => UserService.Instance.CurrentUser?.Username ?? "Guest Mode"; // This shows the logged in users username if not logged in, Guest Mode is displayed.
 
         public ICommand UserInfo { get; } // Binding the button with the viewmodel
+        public ICommand AddWorkout { get; }
 
         
         public WorkoutsViewModel() // Default Constructor
@@ -30,6 +31,15 @@ namespace FitTrackApp.ViewModels
             Users = new ObservableCollection<User>(users);
 
             UserInfo = new RelayCommand(_ => UserInfoDetails());
+
+            AddWorkout = new RelayCommand(_ => AddWOrkoutPath());
+
+        }
+        private void AddWOrkoutPath()
+        {
+            AddWorkoutWindow addWorkoutWindow = new AddWorkoutWindow(); // Creates a new instance.
+
+            addWorkoutWindow.ShowDialog();
         }
 
         private void UserInfoDetails()
@@ -38,6 +48,8 @@ namespace FitTrackApp.ViewModels
 
             userDetailsWindow.ShowDialog(); // Shows UserDetailsWindow as a dialog.
         }
+
+        
 
 
         public event PropertyChangedEventHandler PropertyChanged; // Databinding support. 

@@ -4,9 +4,7 @@ using System.Windows;
 
 namespace FitTrackApp.Views
 {
-    /// <summary>
-    /// Interaction logic for WorkoutsWindow.xaml
-    /// </summary>
+
     public partial class WorkoutsWindow : Window
     {
         public WorkoutsWindow()

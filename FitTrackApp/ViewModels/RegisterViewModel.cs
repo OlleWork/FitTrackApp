@@ -128,6 +128,7 @@ namespace FitTrackApp.ViewModels
 
             if (string.IsNullOrEmpty(UsernameInput) ||
                 string.IsNullOrEmpty(PasswordInput) ||
+                string.IsNullOrEmpty(CountryComboBox) ||
                 string.IsNullOrEmpty(ConfirmPasswordInput) ||
                 string.IsNullOrEmpty(SelectedSecurityQuestion) ||
                 string.IsNullOrEmpty(SecurityAnswer))
