@@ -4,17 +4,20 @@
     {
         public int Repetitions { get; set; } // In order for the repitions to count.
 
-        public override int CalculateCaloriesBurned() // Another override in order to calculate the calories burned.
-        {
-            CaloriesBurned = Repetitions * 2;
-            return CaloriesBurned; //
-        }
 
-        public StrengthWorkout(DateTime date, string type, int repetitions)
+        public StrengthWorkout(DateTime date, string type, TimeSpan duration, int repetitions)
         {
             Date = date;
             Type = type;
             Repetitions = repetitions;
+            Duration = duration;
+            CaloriesBurned = CalculateCaloriesBurned();
+        }
+
+        public override int CalculateCaloriesBurned() // Another override in order to calculate the calories burned.
+        {
+            CaloriesBurned = Repetitions * 2;
+            return CaloriesBurned; //
         }
     }
 }

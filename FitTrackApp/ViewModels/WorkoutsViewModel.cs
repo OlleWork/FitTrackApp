@@ -20,12 +20,6 @@ namespace FitTrackApp.ViewModels
         public ICommand UserInfo { get; } // Binding the button with the viewmodel
         public ICommand AddWorkout { get; }
 
-        
-        public WorkoutsViewModel() // Default Constructor
-        {
-            // Ingen extra kod behövs för att hämta Workouts eftersom Workouts kan nu bindas direkt
-        }
-
         public WorkoutsViewModel(List<User> users) // A Constructor to initialize Users collection.
         {
             Users = new ObservableCollection<User>(users);
@@ -33,6 +27,8 @@ namespace FitTrackApp.ViewModels
             UserInfo = new RelayCommand(_ => UserInfoDetails());
 
             AddWorkout = new RelayCommand(_ => AddWOrkoutPath());
+
+
 
         }
         private void AddWOrkoutPath()
