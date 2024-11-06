@@ -1,15 +1,17 @@
-﻿using System.Windows;
+﻿using FitTrackApp.Models;
+using FitTrackApp.ViewModels;
+using System.Windows;
 
 namespace FitTrackApp.Views
 {
-    /// <summary>
-    /// Interaction logic for AddWorkoutWindow.xaml
-    /// </summary>
     public partial class AddWorkoutWindow : Window
     {
         public AddWorkoutWindow()
         {
             InitializeComponent();
+            var viewModel = new AddWorkoutViewModel(new List<User>());
+            viewModel.closeforWorkoutWindow = this.Close;
+            DataContext = viewModel;
         }
     }
 }

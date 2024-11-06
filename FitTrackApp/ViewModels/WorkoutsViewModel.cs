@@ -1,5 +1,4 @@
-﻿using FitTrack.PropChange;
-using FitTrackApp.Models;
+﻿using FitTrackApp.Models;
 using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
 using System.Collections.ObjectModel;
@@ -20,6 +19,8 @@ namespace FitTrackApp.ViewModels
         public ICommand UserInfo { get; } // Binding the button with the viewmodel
         public ICommand AddWorkout { get; }
 
+        public Action closeforAdd { get; set; }
+
         public WorkoutsViewModel(List<User> users) // A Constructor to initialize Users collection.
         {
             Users = new ObservableCollection<User>(users);
@@ -27,15 +28,14 @@ namespace FitTrackApp.ViewModels
             UserInfo = new RelayCommand(_ => UserInfoDetails());
 
             AddWorkout = new RelayCommand(_ => AddWOrkoutPath());
-
-
-
         }
+
         private void AddWOrkoutPath()
         {
             AddWorkoutWindow addWorkoutWindow = new AddWorkoutWindow(); // Creates a new instance.
 
-            addWorkoutWindow.ShowDialog();
+            addWorkoutWindow.Show();
+            closeforAdd?.Invoke();
         }
 
         private void UserInfoDetails()
@@ -45,10 +45,8 @@ namespace FitTrackApp.ViewModels
             userDetailsWindow.ShowDialog(); // Shows UserDetailsWindow as a dialog.
         }
 
-        
+        public event PropertyChangedEventHandler PropertyChanged; // Databinding support.
 
-
-        public event PropertyChangedEventHandler PropertyChanged; // Databinding support. 
         protected void OnPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

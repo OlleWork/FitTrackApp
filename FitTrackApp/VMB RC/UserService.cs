@@ -19,8 +19,8 @@ namespace FitTrackApp.VMB_RC
                 Password = "password",
                 Workouts = new ObservableCollection<Workout>
                     {
-                    new CardioWorkout(DateTime.Now, "Cardio", TimeSpan.FromMinutes(30), 100, 30),
-                    new StrengthWorkout(DateTime.Now, "Strength", TimeSpan.FromMinutes(20), 30)
+                    new CardioWorkout(DateTime.Now, "Cardio", TimeSpan.FromMinutes(30), 100, 30, ""),
+                    new StrengthWorkout(DateTime.Now, "Strength", TimeSpan.FromMinutes(20), 30, "")
                     }
             });
 
@@ -30,8 +30,8 @@ namespace FitTrackApp.VMB_RC
                 Password = "password",
                 Workouts = new ObservableCollection<Workout>
                     {
-                    new CardioWorkout(DateTime.Now, "Cardio", TimeSpan.FromMinutes(50), 140, 40),
-                    new StrengthWorkout(DateTime.Now, "Strength", TimeSpan.FromMinutes(50), 60)
+                    new CardioWorkout(DateTime.Now, "Cardio", TimeSpan.FromMinutes(50), 140, 40, ""),
+                    new StrengthWorkout(DateTime.Now, "Strength", TimeSpan.FromMinutes(50), 60, "")
                     }
             });
         }

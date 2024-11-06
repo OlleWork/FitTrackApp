@@ -15,16 +15,13 @@ namespace FitTrackApp
             InitializeComponent();
             DataContext = new MainWindowViewModel();
 
-
             var viewModel = new MainWindowViewModel(); //Declaring new var.
 
-            viewModel.closeforWorkout = this.Close; // Calls to close for WorkoutWindow. 
+            viewModel.closeforWorkout = this.Close; // Calls to close for WorkoutWindow.
 
             DataContext = viewModel; // Data Context links with Viewmodel.
-            
+
             viewModel.closeforReg = this.Close; // Calls Mainwindow to close for RegWindow
-
-
         }
 
         private void OpenWorkoutsWindow()
@@ -33,7 +30,7 @@ namespace FitTrackApp
 
             workoutsWindow.Show(); // Shows workoutsWindow when logged in
 
-            this.Close(); // Closes MainWindow incase it is open. 
+            this.Close(); // Closes MainWindow incase it is open.
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)

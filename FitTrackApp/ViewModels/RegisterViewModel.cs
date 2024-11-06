@@ -147,10 +147,9 @@ namespace FitTrackApp.ViewModels
                 };
                 UserService.Instance.Users.Add(newUser); // Adds user to the list in order to save it.
                 MessageBox.Show("Registraton Success!", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                MainWindow mainWindow = new MainWindow(); // Opens the Mainwindow in order to sign in, before regwindow closes. 
+                MainWindow mainWindow = new MainWindow(); // Opens the Mainwindow in order to sign in, before regwindow closes.
                 mainWindow.Show();
-                closeRegisterWindow?.Invoke(); // This will close the RegisterWindow once Register has been hit. 
-
+                closeRegisterWindow?.Invoke(); // This will close the RegisterWindow once Register has been hit.
             }
         }
 

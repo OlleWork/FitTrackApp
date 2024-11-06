@@ -4,16 +4,14 @@
     {
         public int Distance { get; set; } // Counting the distance done during the session.
 
-
-
-        public CardioWorkout(DateTime date, string type, TimeSpan duration, int distance, int CaloriesBurned)
+        public CardioWorkout(DateTime date, string type, TimeSpan duration, int distance, int CaloriesBurned, string notes)
         {
             Date = date;
             Type = type;
             Duration = duration;
             Distance = distance;
             CaloriesBurned = CalculateCaloriesBurned();
-
+            Notes = notes;
         }
 
         public override int CalculateCaloriesBurned() // Used this to calculate calories burned for cardio sessions.
