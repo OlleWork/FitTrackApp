@@ -13,8 +13,6 @@ namespace FitTrackApp
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
-
             var viewModel = new MainWindowViewModel(); //Declaring new var.
 
             viewModel.closeforWorkout = this.Close; // Calls to close for WorkoutWindow.

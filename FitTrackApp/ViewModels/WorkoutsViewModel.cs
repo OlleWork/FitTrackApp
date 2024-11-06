@@ -3,6 +3,8 @@ using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows;
 using System.Windows.Input;
 
 namespace FitTrackApp.ViewModels
@@ -14,12 +16,28 @@ namespace FitTrackApp.ViewModels
 
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts; // Group of workouts for the user.
 
+        private Workout _selectedWorkout; // Holds the selected workout
+        public Workout SelectedWorkout
+        {
+            get => _selectedWorkout; // Returns it
+            set
+            {
+                if (_selectedWorkout != value) // Only update if the value is different from current. 
+                {
+                    _selectedWorkout = value;
+                    OnPropertyChange(nameof(SelectedWorkout));
+                }
+            }
+        }
+
         public string DisplayUser => UserService.Instance.CurrentUser?.Username ?? "Guest Mode"; // This shows the logged in users username if not logged in, Guest Mode is displayed.
 
         public ICommand UserInfo { get; } // Binding the button with the viewmodel
         public ICommand AddWorkout { get; }
-
+        public ICommand ViewDetails { get; }
         public Action closeforAdd { get; set; }
+
+
 
         public WorkoutsViewModel(List<User> users) // A Constructor to initialize Users collection.
         {
@@ -28,6 +46,8 @@ namespace FitTrackApp.ViewModels
             UserInfo = new RelayCommand(_ => UserInfoDetails());
 
             AddWorkout = new RelayCommand(_ => AddWOrkoutPath());
+
+            ViewDetails = new RelayCommand(_ => OpenWorkoutDetails()); 
         }
 
         private void AddWOrkoutPath()
@@ -43,6 +63,23 @@ namespace FitTrackApp.ViewModels
             UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
 
             userDetailsWindow.ShowDialog(); // Shows UserDetailsWindow as a dialog.
+        }
+
+        private void OpenWorkoutDetails() // Redirects to DetailsWindow
+        {
+            if (SelectedWorkout != null) // Checks if workout is selected
+            {
+                var detailsWindow = new WorkoutDetailsWindow // Moves you to details if selected.
+                {
+                    DataContext = SelectedWorkout
+                };
+                detailsWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout.", "Selection Missing", MessageBoxButton.OK, MessageBoxImage.Information); // Lets you know that you have to select it.
+            }
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged; // Databinding support.
