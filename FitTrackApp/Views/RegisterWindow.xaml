@@ -6,7 +6,7 @@
         xmlns:viewmodels="clr-namespace:FitTrackApp.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="Register at FitTrack!" Height="450" Width="800">
+        Title="Register at FitTrack!" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
 
         <Grid.RowDefinitions>

@@ -16,7 +16,7 @@
 
         public override int CalculateCaloriesBurned() // Used this to calculate calories burned for cardio sessions.
         {
-            CaloriesBurned = (int)(Distance * Duration.TotalHours * 5); // Formula for the calculation of the calories. 
+            CaloriesBurned = (int)(Distance * Duration.TotalHours * 5); // Formula for the calculation of the calories.
             return CaloriesBurned; // Returns answer.
         }
     }

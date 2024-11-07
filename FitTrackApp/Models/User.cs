@@ -6,10 +6,10 @@ namespace FitTrackApp.Models
     {
         // This represents the users country and is also public property
         public string? Country { get; set; }
+
         public string? SecurityQuestion { get; set; } // Vice versa but with a security question for password recov.
         public string? SecurityAnswer { get; set; } // Vice versa but with a security answer for password recov.
         public bool IsAdmin { get; set; } // For admin user.
-
 
         public ObservableCollection<Workout> Workouts { get; set; } = new ObservableCollection<Workout>(); // Declares Workouts for UserService.
 
@@ -28,7 +28,5 @@ namespace FitTrackApp.Models
             }
             return false; // Opposite of comment above.
         }
-
-
     }
 }

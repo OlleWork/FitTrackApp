@@ -1,6 +1,5 @@
 ﻿using FitTrackApp.Models;
 using System.Collections.ObjectModel;
-using System.Security.RightsManagement;
 
 namespace FitTrackApp.VMB_RC
 {
@@ -25,16 +24,13 @@ namespace FitTrackApp.VMB_RC
             {
                 Username = "user",
                 Password = "password",
-                IsAdmin = false, // This will make its not an admin. 
+                IsAdmin = false, // This will make its not an admin.
                 Workouts = new ObservableCollection<Workout>
                     {
                     new CardioWorkout(DateTime.Now, "Cardio", TimeSpan.FromMinutes(50), 140, 40, ""),
                     new StrengthWorkout(DateTime.Now, "Strength", TimeSpan.FromMinutes(50), 60, "")
                     }
             });
-
-
-
         }
 
         public bool Login(string username, string password)
@@ -59,7 +55,6 @@ namespace FitTrackApp.VMB_RC
                 foreach (var workout in user.Workouts) // Goes through each users workouts
                 {
                     everyWorkout.Add(workout); // Adds workout to the everyWorkout collection
-
                 }
             }
 
@@ -71,10 +66,8 @@ namespace FitTrackApp.VMB_RC
             foreach (var user in Users) // Loops through each user in the Users
             {
                 if (user.Workouts.Contains(workoutReaper))
-                    break; // Exit the loop if the workout is found. 
+                    break; // Exit the loop if the workout is found.
             }
         }
-
-
     }
 }

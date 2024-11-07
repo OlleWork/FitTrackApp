@@ -1,21 +1,20 @@
 ﻿using FitTrackApp.Models;
-using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace FitTrackApp.ViewModels
 {
-    public class WorkoutDetailsViewModel : INotifyPropertyChanged 
+    public class WorkoutDetailsViewModel : INotifyPropertyChanged
     {
         public Workout SelectedWorkout { get; set; } // Holds the selected workout
 
         public ObservableCollection<Workout> Workouts { get; }
 
         private bool _isReadOnly = true; // Makes sure you can't edit the details of workout yet
-        public bool IsReadOnly 
+
+        public bool IsReadOnly
         {
             get => _isReadOnly; // Gets the stats if its readonly
             set
@@ -28,33 +27,29 @@ namespace FitTrackApp.ViewModels
         public ICommand EditCommand { get; } //Button initiation for the edit, save and remove.
         public ICommand SaveCommand { get; }
 
-        public Action closeAfterSave { get; set; } // Action to close the detailswindow once clicked save. 
+        public Action closeAfterSave { get; set; } // Action to close the detailswindow once clicked save.
 
         public WorkoutDetailsViewModel(Workout selectedWorkout) // Initializes the view model with the selected workout
         {
-            SelectedWorkout = selectedWorkout; 
+            SelectedWorkout = selectedWorkout;
             EditCommand = new RelayCommand(_ => Edit());
             SaveCommand = new RelayCommand(_ => Save());
         }
 
-        private void Edit() // Switches view to edit mode 
+        private void Edit() // Switches view to edit mode
         {
             IsReadOnly = false;
-
         }
 
-        private void Save() // Switches edit to view mode and then closes when clicked save. 
+        private void Save() // Switches edit to view mode and then closes when clicked save.
         {
             IsReadOnly = true;
 
-
-            closeAfterSave?.Invoke(); 
+            closeAfterSave?.Invoke();
         }
 
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

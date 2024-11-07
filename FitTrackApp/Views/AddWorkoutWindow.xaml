@@ -9,11 +9,10 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-          
+
             <RowDefinition Height="Auto" />
-          
+
             <RowDefinition Height="Auto" />
-          
         </Grid.RowDefinitions>
 
         <TextBlock Text="Add Your Workout" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold" Grid.Row="0" />

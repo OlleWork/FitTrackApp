@@ -12,7 +12,7 @@ namespace FitTrackApp.ViewModels
         // A "backing field" for the Combobox
         private string _workoutTypeComboBox;
 
-        public string WorkoutTypeComboBox // Property to idetinfy workout type 
+        public string WorkoutTypeComboBox // Property to idetinfy workout type
         {
             get => _workoutTypeComboBox;
             set
@@ -26,11 +26,11 @@ namespace FitTrackApp.ViewModels
         }
 
         public TimeSpan DurationInput { get; set; } // Timespan in order to see duration of the session
-        
+
         public string NotesInput { get; set; } // Incase of notes from user
 
         public DateTime WorkoutDate { get; set; } = DateTime.Now; // Provides the date and default point is the date of making the workout session.
-        public int CaloriesBurnedInput { get; set; } 
+        public int CaloriesBurnedInput { get; set; }
 
         public ICommand SaveWorkoutPath { get; } // Command in order to save the workout
 
@@ -49,7 +49,7 @@ namespace FitTrackApp.ViewModels
                 return;
             }
 
-            Workout newWorkout; // Needed variable to hold instance 
+            Workout newWorkout; // Needed variable to hold instance
 
             if (WorkoutTypeComboBox.Equals("Cardio", StringComparison.OrdinalIgnoreCase)) // If the workout type is cardio
             {

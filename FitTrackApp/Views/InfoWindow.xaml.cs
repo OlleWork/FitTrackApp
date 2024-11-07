@@ -1,6 +1,4 @@
-﻿using FitTrackApp.ViewModels;
-using System.Windows;
-
+﻿using System.Windows;
 
 namespace FitTrackApp.Views
 {
@@ -8,16 +6,15 @@ namespace FitTrackApp.Views
     {
         public InfoWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         private void ReturnCommand(object sender, EventArgs e) // This activates the button.
         {
-
-            var workoutsWindow = new WorkoutsWindow(); // Shows WorkoutsWindow again 
+            var workoutsWindow = new WorkoutsWindow(); // Shows WorkoutsWindow again
             workoutsWindow.Show();
 
-            this.Close(); // Closes about us. 
+            this.Close(); // Closes about us.
         }
     }
 }
