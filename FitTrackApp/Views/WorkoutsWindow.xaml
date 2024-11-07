@@ -24,6 +24,6 @@
         <Button Content="Remove " Height="23" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,340,0,0" Command="{Binding RemoveCommand}" FontFamily="Arial" FontSize="14"/>
         <!--Remove Button -->
         <Button Content="About Us" Height="23" Width="100" FontFamily="Arial" FontSize="14" Margin="0,165,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding InfoButton}"/>
-        <Button Content="Sign Out" Height="23" Width="100" FontFamily="Arial" FontSize="14" Margin="0,385,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding SignOutCommand}"/>
+        <Button Content="Sign Out" Height="23" Width="100" FontFamily="Arial" FontSize="14" Margin="0,385,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="SignOutClick"/>
     </Grid>
 </Window>

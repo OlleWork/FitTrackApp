@@ -15,6 +15,12 @@ namespace FitTrackApp.Views
             DataContext = viewModel;
         }
 
+        private void SignOutClick(object sender, EventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
 
+            this.Close();
+        }
     }
 }
