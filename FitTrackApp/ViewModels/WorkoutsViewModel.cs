@@ -13,8 +13,9 @@ namespace FitTrackApp.ViewModels
     {
         // ObservableCollection to hold and update the user list for use in the View
         public ObservableCollection<User> Users { get; set; }
-
+        public ObservableCollection<Workout> ShowWorkouts { get; set; }
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts; // Group of workouts for the user.
+        public string DisplayUser => UserService.Instance.CurrentUser?.Username ?? "Guest Mode"; // This shows the logged in users username if not logged in, Guest Mode is displayed.
 
         private Workout _selectedWorkout; // Holds the selected workout
         public Workout SelectedWorkout
@@ -29,8 +30,7 @@ namespace FitTrackApp.ViewModels
                 }
             }
         }
-
-        public string DisplayUser => UserService.Instance.CurrentUser?.Username ?? "Guest Mode"; // This shows the logged in users username if not logged in, Guest Mode is displayed.
+         
 
         public ICommand UserInfo { get; } // Binding the button with the viewmodel
         public ICommand AddWorkout { get; }
@@ -42,7 +42,7 @@ namespace FitTrackApp.ViewModels
 
         public WorkoutsViewModel(List<User> users) // A Constructor to initialize Users collection.
         {
-            Users = new ObservableCollection<User>(users);
+            Users = new ObservableCollection<User>(UserService.Instance.Users); // Initializes the Users collection from the UserService 
 
             UserInfo = new RelayCommand(_ => UserInfoDetails());
 
@@ -51,6 +51,17 @@ namespace FitTrackApp.ViewModels
             ViewDetails = new RelayCommand(_ => OpenWorkoutDetails());
 
             RemoveCommand = new RelayCommand(_ => RemoveWorkout());
+
+            if (UserService.Instance.CurrentUser.IsAdmin) // This will determine the workouts to show based on if its a user or an admin
+            {
+
+                ShowWorkouts = UserService.Instance.GetEveryWorkout(); // If its admin it will show all workouts available from users. 
+            }
+            else
+            {
+
+                ShowWorkouts = UserService.Instance.CurrentUser.Workouts; // If not admin it will show the workouts bound to that user. 
+            }
 
         }
 
@@ -81,20 +92,22 @@ namespace FitTrackApp.ViewModels
                 MessageBox.Show("Please select a workout.", "Selection Missing", MessageBoxButton.OK, MessageBoxImage.Information); // Lets you know that you have to select it.
             }
 
-        }
 
-        private void RemoveWorkout()
+        }
+         private void RemoveWorkout()
+
         {
-            if (SelectedWorkout != null)
+            if (SelectedWorkout != null) // Will make sure a workout is selected
             {
-                Workouts.Remove(SelectedWorkout); // If a workout is selected it will let you remove it
+                UserService.Instance.RemoveWorkout(SelectedWorkout);
+                ShowWorkouts.Remove(SelectedWorkout); // If a workout is selected it will let you remove it
+                SelectedWorkout = null;
             }
             else
             {
                 MessageBox.Show("Please select a workout before removing.", "Selection Missing", MessageBoxButton.OK, MessageBoxImage.Information); // Lets you know that you have to select it before removing.
             }
         }
-
 
 
         public event PropertyChangedEventHandler PropertyChanged; // Databinding support.
