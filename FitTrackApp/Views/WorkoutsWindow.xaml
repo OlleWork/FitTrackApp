@@ -17,11 +17,13 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Text="{Binding DisplayUser}" FontSize="14" FontFamily="Arial" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" />
-        <Button Content="User" Width="100" Height="23" FontFamily="Arial" FontSize="14" Margin="0,250, 0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding UserInfo}" /> <!-- Button for "User" -->
-        <Button Content="Add Workout" Width="100" Height="23" FontFamily="Arial" FontSize="14" Margin="0,295,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding AddWorkout}" />
+        <Button Content="User" Width="100" Height="23" FontFamily="Arial" FontSize="14" Margin="0,205, 0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding UserInfo}" /> <!-- Button for "User" -->
+        <Button Content="Add Workout" Width="100" Height="23" FontFamily="Arial" FontSize="14" Margin="0,250,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding AddWorkout}" />
         <!-- Button for "Add Workout" -->
-        <Button Content="Details" Width="100" Height="23" FontFamily="Arial" FontSize="14" Margin="0,340,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding ViewDetails}"/>
-        <Button Content="Remove " Height="23" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,385,0,0" Command="{Binding RemoveCommand}" FontFamily="Arial"/>
+        <Button Content="Details" Width="100" Height="23" FontFamily="Arial" FontSize="14" Margin="0,295,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding ViewDetails}"/>
+        <Button Content="Remove " Height="23" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,340,0,0" Command="{Binding RemoveCommand}" FontFamily="Arial" FontSize="14"/>
         <!--Remove Button -->
+        <Button Content="About Us" Height="23" Width="100" FontFamily="Arial" FontSize="14" Margin="0,165,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding InfoButton}"/>
+        <Button Content="Sign Out" Height="23" Width="100" FontFamily="Arial" FontSize="14" Margin="0,385,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding SignOutCommand}"/>
     </Grid>
 </Window>

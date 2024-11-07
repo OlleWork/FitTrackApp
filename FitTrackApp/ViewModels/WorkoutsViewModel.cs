@@ -36,7 +36,9 @@ namespace FitTrackApp.ViewModels
         public ICommand AddWorkout { get; }
         public ICommand ViewDetails { get; }
         public ICommand RemoveCommand { get; }
+        public ICommand InfoButton { get; }
         public Action closeforAdd { get; set; }
+        public Action closeforUs { get; set; }
 
 
 
@@ -51,6 +53,8 @@ namespace FitTrackApp.ViewModels
             ViewDetails = new RelayCommand(_ => OpenWorkoutDetails());
 
             RemoveCommand = new RelayCommand(_ => RemoveWorkout());
+
+            InfoButton = new RelayCommand(_ => InfoPath());
 
             if (UserService.Instance.CurrentUser.IsAdmin) // This will determine the workouts to show based on if its a user or an admin
             {
@@ -91,9 +95,16 @@ namespace FitTrackApp.ViewModels
             {
                 MessageBox.Show("Please select a workout.", "Selection Missing", MessageBoxButton.OK, MessageBoxImage.Information); // Lets you know that you have to select it.
             }
+        }
 
+        private void InfoPath()
+        {
+            InfoWindow infoWindow = new InfoWindow();
+            infoWindow.Show();
+            closeforUs?.Invoke();
 
         }
+
          private void RemoveWorkout()
 
         {

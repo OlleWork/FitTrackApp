@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FitTrackApp.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace FitTrackApp.Views
 {
@@ -18,7 +8,16 @@ namespace FitTrackApp.Views
     {
         public InfoWindow()
         {
-            InitializeComponent();
+            InitializeComponent();           
+        }
+
+        private void ReturnCommand(object sender, EventArgs e) // This activates the button.
+        {
+
+            var workoutsWindow = new WorkoutsWindow(); // Shows WorkoutsWindow again 
+            workoutsWindow.Show();
+
+            this.Close(); // Closes about us. 
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackApp.Views"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+        Title="Info Window" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <TextBlock Text="About Us" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold" />
 
@@ -15,7 +15,7 @@
         <TextBlock Text="How to navigate" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,-200,0,0"/>
         <TextBlock Text="When you have logged in to FitTrack and is ready to add workouts its important to click the button in the bottom right and add your workout!"  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"  Margin="0,-150,0,0"/>
         <TextBlock Text="Following that, if you'd like to change anything select your workout and click &quot;Details&quot; and change what you'd like."  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"  Margin="0,-130,0,0"/>
-        <Button Content="Return" Height="23" Width="40" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding ReturnToWorkout}"/>
+        <Button Content="Return" Height="23" Width="40" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ReturnCommand"/>
 
     </Grid>
 </Window>
