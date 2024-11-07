@@ -69,10 +69,7 @@ namespace FitTrackApp.ViewModels
         {
             if (SelectedWorkout != null) // Checks if workout is selected
             {
-                var detailsWindow = new WorkoutDetailsWindow // Moves you to details if selected.
-                {
-                    DataContext = SelectedWorkout
-                };
+                var detailsWindow = new WorkoutDetailsWindow(SelectedWorkout); // Moves you to details if selected.
                 detailsWindow.ShowDialog();
             }
             else

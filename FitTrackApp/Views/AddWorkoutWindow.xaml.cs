@@ -9,9 +9,12 @@ namespace FitTrackApp.Views
         public AddWorkoutWindow()
         {
             InitializeComponent();
+
             var viewModel = new AddWorkoutViewModel(new List<User>());
-            viewModel.closeforWorkoutWindow = this.Close;
+
             DataContext = viewModel;
+
+            viewModel.closeforWorkoutWindow = this.Close;
         }
     }
 }
