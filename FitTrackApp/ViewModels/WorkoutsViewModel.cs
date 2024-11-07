@@ -35,6 +35,7 @@ namespace FitTrackApp.ViewModels
         public ICommand UserInfo { get; } // Binding the button with the viewmodel
         public ICommand AddWorkout { get; }
         public ICommand ViewDetails { get; }
+        public ICommand RemoveCommand { get; }
         public Action closeforAdd { get; set; }
 
 
@@ -47,7 +48,10 @@ namespace FitTrackApp.ViewModels
 
             AddWorkout = new RelayCommand(_ => AddWOrkoutPath());
 
-            ViewDetails = new RelayCommand(_ => OpenWorkoutDetails()); 
+            ViewDetails = new RelayCommand(_ => OpenWorkoutDetails());
+
+            RemoveCommand = new RelayCommand(_ => RemoveWorkout());
+
         }
 
         private void AddWOrkoutPath()
@@ -78,6 +82,20 @@ namespace FitTrackApp.ViewModels
             }
 
         }
+
+        private void RemoveWorkout()
+        {
+            if (SelectedWorkout != null)
+            {
+                Workouts.Remove(SelectedWorkout); // If a workout is selected it will let you remove it
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout before removing.", "Selection Missing", MessageBoxButton.OK, MessageBoxImage.Information); // Lets you know that you have to select it before removing.
+            }
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged; // Databinding support.
 

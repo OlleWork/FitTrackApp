@@ -2,6 +2,7 @@
 using FitTrackApp.Views;
 using FitTrackApp.VMB_RC;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -10,7 +11,9 @@ namespace FitTrackApp.ViewModels
     public class WorkoutDetailsViewModel : INotifyPropertyChanged 
     {
         public Workout SelectedWorkout { get; set; } // Holds the selected workout
-        
+
+        public ObservableCollection<Workout> Workouts { get; }
+
         private bool _isReadOnly = true; // Makes sure you can't edit the details of workout yet
         public bool IsReadOnly 
         {
@@ -22,8 +25,9 @@ namespace FitTrackApp.ViewModels
             }
         }
 
-        public ICommand EditCommand { get; } //Button initiation for the edit and save
+        public ICommand EditCommand { get; } //Button initiation for the edit, save and remove.
         public ICommand SaveCommand { get; }
+
         public Action closeAfterSave { get; set; } // Action to close the detailswindow once clicked save. 
 
         public WorkoutDetailsViewModel(Workout selectedWorkout) // Initializes the view model with the selected workout
@@ -46,6 +50,8 @@ namespace FitTrackApp.ViewModels
 
             closeAfterSave?.Invoke(); 
         }
+
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
