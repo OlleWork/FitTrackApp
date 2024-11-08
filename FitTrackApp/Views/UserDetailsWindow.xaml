@@ -5,7 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackApp.Views"
         mc:Ignorable="d"
-        Title="UserDetailsWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+        Title="User Settings" Height="450" Width="800" ResizeMode="CanMinimize" Background="LightGray">
     <Grid>
+        <TextBlock Text="User Settings" HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="34" Foreground="Crimson" FontWeight="Bold" />
+
+        <!-- Current username -->
+        <TextBlock Text="{Binding OldUsername}" FontSize="14" FontFamily="Arial" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <!-- Country -->
+        <TextBlock Text="{Binding YourCountry}" FontSize="14" FontFamily="Arial" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        
+        <!-- Change the Username -->
+        <TextBlock Text="Change Username:" FontSize="14" FontFamily="Arial" Margin="0,90,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextDecorations="Underline"/>
+        <TextBox Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontFamily="Arial" Margin="0,88,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="100" />
+        
+        <!-- Change the password -->
+
+        <Button Content="Save Info" Height="23" Width="100" FontSize="14" FontFamily="Arial" Margin="0,290,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding SaveCommand}" />
+        <Button Content="Return" Height="23" Width="100" FontSize="14" FontFamily="Arial" Margin="0,290,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Takemeback"/>
     </Grid>
 </Window>

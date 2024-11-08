@@ -39,6 +39,7 @@ namespace FitTrackApp.ViewModels
         public ICommand InfoButton { get; }
         public Action closeforAdd { get; set; }
         public Action closeforUs { get; set; }
+        public Action closeforDetails { get; set; }
 
         public WorkoutsViewModel(List<User> users) // A Constructor to initialize Users collection.
         {
@@ -75,8 +76,8 @@ namespace FitTrackApp.ViewModels
         private void UserInfoDetails()
         {
             UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
-
-            userDetailsWindow.ShowDialog(); // Shows UserDetailsWindow as a dialog.
+            userDetailsWindow.Show(); // Shows UserDetailsWindow as a dialog.
+            closeforDetails?.Invoke();
         }
 
         private void OpenWorkoutDetails() // Redirects to DetailsWindow

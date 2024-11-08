@@ -12,6 +12,7 @@ namespace FitTrackApp.Views
             var viewModel = new WorkoutsViewModel(new List<User>());
             viewModel.closeforAdd = this.Close;
             viewModel.closeforUs = this.Close;
+            viewModel.closeforDetails = this.Close;
             DataContext = viewModel;
         }
 

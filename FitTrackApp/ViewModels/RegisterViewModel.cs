@@ -110,6 +110,8 @@ namespace FitTrackApp.ViewModels
             "What is your favorite food?",
             "What city were you born in?"
             };
+
+
         }
 
         private void RegisterNewUser() // Takes care of new user registrations.
