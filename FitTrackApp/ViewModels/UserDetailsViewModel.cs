@@ -9,6 +9,7 @@ namespace FitTrackApp.ViewModels
 {
     public class UserDetailsViewModel : INotifyPropertyChanged
     {
+        public List<string> CountryList { get; } // Grabs the list from the AllCountries class
 
 
         private string _newUsername; // Holds the username 
@@ -33,6 +34,8 @@ namespace FitTrackApp.ViewModels
         public UserDetailsViewModel()
         {
             SaveCommand = new RelayCommand(_ => SavePath());
+
+            CountryList = AllCountries.CountryNames; // Grabs the list from the AllCountries class
 
         }
 

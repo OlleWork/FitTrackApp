@@ -10,6 +10,7 @@ namespace FitTrackApp.ViewModels
     public class RegisterViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Workout> Workouts => UserService.Instance.CurrentUser?.Workouts;
+        public List<string> CountryList { get; }
 
         // Private fields in order to store inputs for the registration from the user.
         private string _usernameinput;
@@ -111,7 +112,7 @@ namespace FitTrackApp.ViewModels
             "What city were you born in?"
             };
 
-
+            CountryList = AllCountries.CountryNames;
         }
 
         private void RegisterNewUser() // Takes care of new user registrations.
