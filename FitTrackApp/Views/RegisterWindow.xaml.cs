@@ -1,5 +1,4 @@
-﻿using FitTrackApp.Models;
-using FitTrackApp.ViewModels;
+﻿using FitTrackApp.ViewModels;
 using FitTrackApp.VMB_RC;
 using System.Windows;
 using System.Windows.Controls;

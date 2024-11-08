@@ -1,9 +1,8 @@
 ﻿<Window x:Class="FitTrackApp.Views.UserDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FitTrackApp.Views"
         mc:Ignorable="d"
         Title="User Settings" Height="450" Width="800" ResizeMode="CanMinimize" Background="LightGray">
     <Grid>
@@ -12,12 +11,12 @@
         <!-- Current username -->
         <TextBlock Text="{Binding OldUsername}" FontSize="14" FontFamily="Arial" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
         <!-- Country -->
-        <TextBlock Text="{Binding YourCountry}" FontSize="14" FontFamily="Arial" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-        
+        <TextBlock Text="{Binding YourCountry}" FontSize="14" FontFamily="Arial" Margin="0,20,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+
         <!-- Change the Username -->
         <TextBlock Text="Change Username:" FontSize="14" FontFamily="Arial" Margin="0,90,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <TextBox Text="{Binding NewUsername, UpdateSourceTrigger=LostFocus}" FontSize="14" FontFamily="Arial" Margin="0,88,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="100" />
-        
+
         <!-- Change the password -->
         <TextBlock Text="Change Password:" FontSize="14" FontFamily="Arial" Margin="0,130,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <PasswordBox x:Name="NewPasswordBox" PasswordChanged="NewPasswordBox_Password" FontSize="14" FontFamily="Arial" Margin="0,128,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="100" />
@@ -28,8 +27,12 @@
 
         <!-- Buttons for saving and or cancelling.-->
         <Button Content="Save Info" Height="23" Width="100" FontSize="14" FontFamily="Arial" Margin="0,290,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding SaveCommand}" />
-        <Button Content="Return" Height="23" Width="100" FontSize="14" FontFamily="Arial" Margin="0,290,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Takemeback"/>
-        
-        
+        <Button Content="Return" Height="23" Width="100" FontSize="14" FontFamily="Arial" Margin="0,290,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Takemeback" />
+
+        <!-- Changing the country -->
+        <TextBlock Text="Change Country:" FontSize="14" FontFamily="Arial" Margin="0,210,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <ComboBox ItemsSource="{Binding CountryList}"
+                  SelectedItem="{Binding CountryComboBox, UpdateSourceTrigger=PropertyChanged}"
+                  Height="23" Width="100" FontSize="14" FontFamily="Arial" Margin="0,208,-90,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
     </Grid>
 </Window>

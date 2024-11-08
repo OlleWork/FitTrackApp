@@ -115,13 +115,11 @@ namespace FitTrackApp.ViewModels
             CountryList = AllCountries.CountryNames;
         }
 
-
         private void RegisterNewUser() // Takes care of new user registrations.
         {
-
-            if (string.IsNullOrWhiteSpace(UsernameInput) || UsernameInput.Length < 3) // Checks if the username length is either empty or has less than 3 characters 
+            if (string.IsNullOrWhiteSpace(UsernameInput) || UsernameInput.Length < 3) // Checks if the username length is either empty or has less than 3 characters
             {
-                MessageBox.Show("Username must be at least 3 characters.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Warning incase of. 
+                MessageBox.Show("Username must be at least 3 characters.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Warning incase of.
                 return;
             }
 

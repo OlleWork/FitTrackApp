@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FitTrackApp.Models
+﻿namespace FitTrackApp.Models
 {
     public static class AllCountries
     {
@@ -203,7 +197,6 @@ namespace FitTrackApp.Models
             "Yemen",
             "Zambia",
             "Zimbabwe"
-
         };
     }
 }
