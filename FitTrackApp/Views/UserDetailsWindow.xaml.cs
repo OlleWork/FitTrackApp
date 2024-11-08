@@ -9,7 +9,8 @@ namespace FitTrackApp.Views
         public UserDetailsWindow()
         {
             InitializeComponent();
-            DataContext = new UserDetailsViewModel();
+            var viewModel = new UserDetailsViewModel();
+            DataContext = viewModel;
             
         }
 
@@ -21,6 +22,20 @@ namespace FitTrackApp.Views
             this.Close(); // Closes 
         }
 
-        
+        private void NewPasswordBox_Password(object sender, EventArgs e)
+        {
+            if (DataContext is UserDetailsViewModel viewModel)
+            {
+                viewModel.NewPassword = NewPasswordBox.Password;
+            }
+        }
+
+        private void ConfirmNewPasswordBox_Password(object sender, EventArgs e)
+        {
+            if (DataContext is UserDetailsViewModel viewmodel)
+            {
+                viewmodel.ConfirmPassword = ConfirmPasswordBox.Password;
+            }
+        }
     }
 }

@@ -10,7 +10,29 @@ namespace FitTrackApp.ViewModels
     public class UserDetailsViewModel : INotifyPropertyChanged
     {
         public List<string> CountryList { get; } // Grabs the list from the AllCountries class
+        
+        
+        private string _newPassword;
+        public string NewPassword
+        {
+            get => _newPassword;
+            set
+            {
+                _newPassword = value;
+                OnPropertyChange(nameof(NewPassword));
+            }
+        }
 
+        private string _confirmPassword;
+        public string ConfirmPassword
+        {
+            get => _confirmPassword;
+            set
+            {
+                _confirmPassword = value;
+                OnPropertyChange(nameof(ConfirmPassword));  
+            }
+        }
 
         private string _newUsername; // Holds the username 
         public string NewUsername // Property to get n set the username.
@@ -29,11 +51,14 @@ namespace FitTrackApp.ViewModels
 
 
         public ICommand SaveCommand { get; } // Saves your info and then returns to workout window
+        
         public Action closeforWorkout { get; set; }
 
         public UserDetailsViewModel()
         {
             SaveCommand = new RelayCommand(_ => SavePath());
+
+            NewUsername = UserService.Instance.CurrentUser.Username;
 
             CountryList = AllCountries.CountryNames; // Grabs the list from the AllCountries class
 
@@ -42,29 +67,47 @@ namespace FitTrackApp.ViewModels
         private void SavePath() // Method that will help handling saving a new username.
         {
 
-
-            if (string.IsNullOrWhiteSpace(NewUsername) || NewUsername.Length < 3) // Checks if the username length is either empty or has less than 3 characters 
+            // Username
+            if (!string.IsNullOrWhiteSpace(NewUsername) && NewUsername != OldUsername)
             {
-                MessageBox.Show("Username must be at least 3 characters.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Warning incase of. 
-                return;
+                if (NewUsername.Length < 3) // Checks if the username length is either empty or has less than 3 characters 
+                {
+                    MessageBox.Show("Username must be at least 3 characters.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Warning incase of. 
+                    return;
+                }
+
             }
 
-            bool usernameExists = UserService.Instance.Users.Any(user => user.Username.Equals(NewUsername, StringComparison.OrdinalIgnoreCase)); // Makes sure the username isnt occupied.
+            bool usernameExists = UserService.Instance.Users.Any(user => user.Username != null && user.Username.Equals(NewUsername, StringComparison.OrdinalIgnoreCase) && user != UserService.Instance.CurrentUser);
             if (usernameExists)
             {
                 MessageBox.Show("Username occupied. Please choose another.", "Invalid", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            UserService.Instance.CurrentUser.Username = NewUsername; // Updates all usernames 
-            OnPropertyChange(nameof(OldUsername));
-
-            MessageBox.Show("Successfully updates your username!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            UserService.Instance.CurrentUser.Username = NewUsername;
+            OnPropertyChange(nameof(OldUsername)); // Updates username
 
 
+            // Password
+            if (!string.IsNullOrEmpty(NewPassword) || !string.IsNullOrEmpty(ConfirmPassword))
+            {
+                if (NewPassword.Length < 5)
+                {
+                    MessageBox.Show("Password must be at least 5 characters", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); // Lets you know, minimum 5 characters. 
+                    return;
+                }
+            if (NewPassword != ConfirmPassword) // If it does NOT match the NewPassword
+                {
+                    MessageBox.Show("Passwords do not match", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                UserService.Instance.CurrentUser.Password = NewPassword; // Updates password if all matches. 
+            }
+
+            // Success!
+            MessageBox.Show("Successfully updates your information!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged; // Databinding support.
 
