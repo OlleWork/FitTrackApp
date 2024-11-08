@@ -18,7 +18,6 @@ namespace FitTrackApp.ViewModels
         public string DisplayUser => UserService.Instance.CurrentUser?.Username ?? "Guest Mode"; // This shows the logged in users username if not logged in, Guest Mode is displayed.
 
         private Workout _selectedWorkout; // Holds the selected workout
-
         public Workout SelectedWorkout
         {
             get => _selectedWorkout; // Returns it

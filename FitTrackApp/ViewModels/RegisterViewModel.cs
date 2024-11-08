@@ -14,7 +14,6 @@ namespace FitTrackApp.ViewModels
 
         // Private fields in order to store inputs for the registration from the user.
         private string _usernameinput;
-
         private string _passwordInput;
         private string _confirmPasswordInput;
         private string _countryComboBox;

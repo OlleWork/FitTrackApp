@@ -58,14 +58,13 @@ namespace FitTrackApp.ViewModels
 
         private void SignIn()
         {
-            _onlineUser = UserService.Instance.Users.FirstOrDefault(u =>
-                u.Username == UsernameInput && u.Password == Password);
+            _onlineUser = UserService.Instance.Users.FirstOrDefault(u => u.Username == UsernameInput && u.Password == Password); 
 
             if (_onlineUser != null)
             {
                 UserService.Instance.CurrentUser = _onlineUser; // Sets the current user in the UserService to the one who's online.
                 // Opens WorkoutWindow after successful login!
-                MessageBox.Show("Login Successful!", "Login", MessageBoxButton.OK);
+                MessageBox.Show("Login Successful!", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
                 WorkoutsWindow workoutsWindow = new WorkoutsWindow();
                 workoutsWindow.Show();
                 closeforWorkout?.Invoke();
