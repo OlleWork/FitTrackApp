@@ -117,7 +117,7 @@ namespace FitTrackApp.ViewModels
             // Success!
             UserService.Instance.CurrentUser.Country = CountryComboBox;
 
-            MessageBox.Show("Successfully updates your information!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Successfully updated your information!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public event PropertyChangedEventHandler PropertyChanged; // Databinding support.
